@@ -1,0 +1,177 @@
+@import "tailwindcss";
+
+/* ─── Font CSS Variables ──────────────────────────────────────────── */
+@theme inline {
+  --font-display: var(--font-playfair), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), Menlo, monospace;
+
+  /* ─── Colors ────────────────────────────────────────────────────── */
+  --color-background: #FAFAF9;
+  --color-surface: #FFFFFF;
+  --color-dark: #0F0F0F;
+  --color-dark-secondary: #111827;
+  --color-primary: #1a1a2e;
+  --color-primary-secondary: #16213e;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-positive: #10B981;
+  --color-negative: #EF4444;
+  --color-gold: #D4AF37;
+
+  /* ─── Font Sizes ─────────────────────────────────────────────────── */
+  --font-size-display-2xl: 4.5rem;
+  --line-height-display-2xl: 1.05;
+  --letter-spacing-display-2xl: -0.02em;
+
+  --font-size-display-xl: 3.75rem;
+  --line-height-display-xl: 1.08;
+  --letter-spacing-display-xl: -0.02em;
+
+  --font-size-display-lg: 3rem;
+  --line-height-display-lg: 1.1;
+  --letter-spacing-display-lg: -0.015em;
+
+  --font-size-display-md: 2.25rem;
+  --line-height-display-md: 1.2;
+  --letter-spacing-display-md: -0.01em;
+
+  --font-size-display-sm: 1.875rem;
+  --line-height-display-sm: 1.25;
+  --letter-spacing-display-sm: -0.01em;
+
+  /* ─── Shadows ────────────────────────────────────────────────────── */
+  --shadow-card: 0 1px 3px 0 rgba(0,0,0,0.04), 0 1px 2px -1px rgba(0,0,0,0.04);
+  --shadow-card-hover: 0 4px 12px 0 rgba(0,0,0,0.08);
+  --shadow-metric: 0 0 0 1px rgba(0,0,0,0.05), 0 2px 8px rgba(0,0,0,0.06);
+
+  /* ─── Border Radius ──────────────────────────────────────────────── */
+  --radius-card: 0.75rem;
+
+  /* ─── Animations ─────────────────────────────────────────────────── */
+  --animate-ticker: ticker 40s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.4s ease-out;
+
+  @keyframes ticker {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+  @keyframes fade-up {
+    0%   { opacity: 0; transform: translateY(16px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    border-color: var(--color-border);
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-dark-secondary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--color-primary) 15%, transparent);
+  }
+}
+
+/* ─── Utilities ───────────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-numeric {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .ticker-pause:hover .ticker-inner {
+    animation-play-state: paused;
+  }
+
+  /* Display typography utilities */
+  .text-display-2xl {
+    font-size: var(--font-size-display-2xl);
+    line-height: var(--line-height-display-2xl);
+    letter-spacing: var(--letter-spacing-display-2xl);
+  }
+  .text-display-xl {
+    font-size: var(--font-size-display-xl);
+    line-height: var(--line-height-display-xl);
+    letter-spacing: var(--letter-spacing-display-xl);
+  }
+  .text-display-lg {
+    font-size: var(--font-size-display-lg);
+    line-height: var(--line-height-display-lg);
+    letter-spacing: var(--letter-spacing-display-lg);
+  }
+  .text-display-md {
+    font-size: var(--font-size-display-md);
+    line-height: var(--line-height-display-md);
+    letter-spacing: var(--letter-spacing-display-md);
+  }
+  .text-display-sm {
+    font-size: var(--font-size-display-sm);
+    line-height: var(--line-height-display-sm);
+    letter-spacing: var(--letter-spacing-display-sm);
+  }
+}
+
+/* ─── Crosshair decorative marks (Rultivo-inspired) ─────────────── */
+.crosshair {
+  position: relative;
+}
+.crosshair::before,
+.crosshair::after {
+  content: '';
+  position: absolute;
+  background: currentColor;
+  opacity: 0.2;
+  pointer-events: none;
+}
+.crosshair::before {
+  width: 1px;
+  height: 14px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.crosshair::after {
+  width: 14px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted);
+}
