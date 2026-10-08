@@ -1,5 +1,16 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Ustoz — Darsni tashkil etish (`/dars`)
+
+Oʻqituvchi uchun darsni tashkil etish ilovasi. `npm run dev` dan soʻng [http://localhost:3000/dars](http://localhost:3000/dars) ni oching.
+
+- **Dars rejalari** (`/dars/rejalar`) — taʼlimiy/tarbiyaviy/rivojlantiruvchi maqsadlar, vazifalar, vaqt boʻyicha bosqichlar (interfaol metod tanlash bilan), chop etishga tayyor “dars ishlanmasi”.
+- **Materiallar** (`/dars/materiallar`) — tarqatmalar, testlar (sinfda onlayn oʻtkazish, avtomatik baholash, javoblar kaliti bilan chop etish), topshiriqlar (baholash mezonlari bilan) va keyslar.
+- **Interfaol metodlar** (`/dars/metodlar`) — 15 ta metod (aqliy hujum, keys-stadi, munozara, zig-zag, FSMU …), guruhlarga ajratish va taymer.
+- **Sinf boshqaruvi** (`/dars/sinf`) — davomat, xulq-atvor ballari, sinf qoidalari (plakat chop etish), intizom tavsiyalari, tasodifiy oʻquvchi tanlash.
+
+Maʼlumotlar brauzerning `localStorage` xotirasida saqlanadi (server yoki hisob talab qilinmaydi).
+
 ## Getting Started
 
 First, run the development server:

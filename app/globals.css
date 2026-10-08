@@ -175,3 +175,17 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-muted);
 }
+
+/* ─── Chop etish (Dars tashkil etish) ─────────────────────────────── */
+@media print {
+  @page {
+    margin: 16mm;
+  }
+  body {
+    background: #fff;
+  }
+  /* Ochiq printable modal boʻlsa — faqat u chop etiladi */
+  body:has(.print-root) > *:not(.print-root) {
+    display: none !important;
+  }
+}
